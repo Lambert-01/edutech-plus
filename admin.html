@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTech+ Admin Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <!-- Include a UI framework like Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" alt="EduTech+ Logo" height="40">
+            EduTech+ Admin Dashboard
+        </a>
+        <div class="ml-auto d-flex align-items-center">
+            <div class="profile mr-3">
+                <?php
+                // Database configuration
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "edutech";
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                // Prepare and execute query to retrieve admin information
+                $stmt = $conn->prepare("SELECT name, photo FROM admin WHERE email = ?");
+                $stmt->bind_param("s", $email);
+                $email = "nlambert833@gmail.com";
+                $stmt->execute();
+                $stmt->bind_result($name, $photo);
+
+                if ($stmt->fetch()) {
+                    echo "<img src='" . $photo . "' alt='NDACYAYISABA Lambert Profile Photo'>";
+                    echo "<span class='ml-2 text-white'><strong>" . $name . "</strong></span>";
+                } else {
+                    echo "0 results";
+                }
+
+                $stmt->close();
+                $conn->close();
+                ?>
+            </div>
+            <button onclick="location.href='logout.php'" class="btn btn-outline-light mr-2">Logout</button>
+            <button onclick="location.href='change_profile.php'" class="btn btn-outline-light">Change Profile</button>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <i class="fas fa-tachometer-alt"></i>
+                                Dashboard Overview
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#user-management">
+                                <i class="fas fa-users"></i>
+                                User Management
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#course-management">
+                                <i class="fas fa-book"></i>
+                                Course Management
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#course-analytics">
+                                <i class="fas fa-chart-line"></i>
+                                Course Analytics
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#user-engagement">
+                                <i class="fas fa-chart-bar"></i>
+                                User Engagement
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#notifications">
+                                <i class="fas fa-bell"></i>
+                                Notifications
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#content-management">
+                                <i class="fas fa-file-alt"></i>
+                                Content Management
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#support-feedback">
+                                <i class="fas fa-life-ring"></i>
+                                Support & Feedback
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="edutech.html">
+                                <i class="fas fa-home"></i>
+                                EduTech+ Home
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard Overview</h1>
+                </div>
+
+                <!-- Course Management Section -->
+                <section id="course-management" class="mb-4">
+                    <h2>Course Management</h2>
+                    <div id="upload-course">
+                        <h3>Upload a New Course</h3>
+                        <form id="course-upload-form" enctype="multipart/form-data" action="upload-course.php" method="POST">
+                            <div class="form-group">
+                                <label for="course-title">Course Title</label>
+                                <input type="text" class="form-control" id="course-title" name="course-title" placeholder="Enter Course Title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="course-description">Course Description</label>
+                                <textarea class="form-control" id="course-description" name="course-description" rows="3" placeholder="Enter Course Description"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="course-file">Select Course File</label>
+                                <input type="file" class="form-control-file" id="course-file" name="course-file" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-2">Upload</button>
+                        </form>
+                    </div>
+
+                    <hr>
+
+                    <h3>Manage Existing Courses</h3>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                // Database configuration
+                                $servername = "localhost";
+                                $username = "root";
+                                $password = "";
+                                $dbname = "edutech";
+
+                                // Create connection
+                                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                                // Check connection
+                                if ($conn->connect_error) {
+                                    die("Connection failed: " . $conn->connect_error);
+                                }
+
+                                // SQL query to fetch all courses
+                                $sql_courses = "SELECT id, title, description FROM courses";
+                                $result_courses = $conn->query($sql_courses);
+
+                                // Check if there are rows returned
+                                if ($result_courses === false) {
+                                    echo "Error retrieving courses: " . $conn->error;
+                                } else {
+                                    if ($result_courses->num_rows > 0) {
+                                        // Output data of each row
+                                        while ($row = $result_courses->fetch_assoc()) {
+                                            echo "<tr>";
+                                            echo "<td>" . $row['id'] . "</td>";
+                                            echo "<td>" . $row['title'] . "</td>";
+                                            echo "<td>" . $row['description'] . "</td>";
+                                            echo "<td><a href='edit-course.php?id=" . $row['id'] . "' class='btn btn-sm btn-outline-primary'>Edit</a> <a href='delete-course.php?id=" . $row['id'] . "' class='btn btn-sm btn-outline-danger'>Delete</a></td>";
+                                            echo "</tr>";
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='4'>No courses found</td></tr>";
+                                    }
+                                }
+
+                                // Close connection
+                                $conn->close();
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <!-- End Course Management Section -->
+                 
+
+                <!-- Support & Feedback Section -->
+                <section id="support-feedback" class="mb-4">
+                    <h2>Support & Feedback</h2>
+
+                    <h3>Subscription Emails</h3>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Email</th>
+                                    <th>Subscription Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                // Database configuration
+                                $servername = "localhost";
+                                $username = "root";
+                                $password = "";
+                                $dbname = "edutech";
+
+                                // Create connection
+                                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                                // Check connection
+                                if ($conn->connect_error) {
+                                    die("Connection failed: " . $conn->connect_error);
+                                }
+
+                                // SQL query to fetch all subscribers
+                                $sql_subscribers = "SELECT email, subscription_date FROM subscribe";
+                                $result_subscribers = $conn->query($sql_subscribers);
+
+                                // Check if there are rows returned
+                                if ($result_subscribers === false) {
+                                    echo "Error retrieving subscribers: " . $conn->error;
+                                } else {
+                                    if ($result_subscribers->num_rows > 0) {
+                                        // Output data of each row
+                                        while ($row = $result_subscribers->fetch_assoc()) {
+                                            echo "<tr>";
+                                            echo "<td>" . $row['email'] . "</td>";
+                                            echo "<td>" . $row['subscription_date'] . "</td>";
+                                            echo "</tr>";
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='2'>No subscribers found</td></tr>";
+                                    }
+                                }
+
+                                // Close connection
+                                $conn->close();
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <!-- End Support & Feedback Section -->
+            </main>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

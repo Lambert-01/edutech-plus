@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - EduTech+</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js"></script>
+    <style>
+        body {
+            background-image: url('e-learning.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        header .logo img {
+            width: 150px;
+        }
+
+        header .settings-panel {
+            display: flex;
+            align-items: center;
+        }
+
+        header .settings-panel a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        header .settings-panel a:hover {
+            text-decoration: underline;
+        }
+
+        main.edit-profile {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        main.edit-profile h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        main.edit-profile .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        main.edit-profile .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        main.edit-profile .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        main.edit-profile .form-group input[type="file"] {
+            padding: 3px;
+        }
+
+        main.edit-profile .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        main.edit-profile .btn:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #aaa;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="logo.png" alt="EduTech+ Logo">
+            </div>
+            <div class="settings-panel">
+                <a href="learners-dashboard.php"><b>Dashboard</b></a>
+                <a href="logout.php">Log Out</a>
+            </div>
+        </header>
+        <main class="edit-profile">
+            <h1>Edit Profile</h1>
+            <form action="upload-profile-photo.php" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" value="<?php echo htmlspecialchars($_SESSION['user_name'] ?? ''); ?>" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($_SESSION['user_email'] ?? ''); ?>" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="text" class="form-control" id="phone" name="phone" value="<?php echo htmlspecialchars($_SESSION['user_phone'] ?? ''); ?>" required>
+                </div>
+                <div class="form-group">
+                    <label for="nationality">Nationality:</label>
+                    <input type="text" class="form-control" id="nationality" name="nationality" value="<?php echo htmlspecialchars($_SESSION['user_nationality'] ?? ''); ?>" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" class="form-control" id="dob" name="dob" value="<?php echo htmlspecialchars($_SESSION['user_dob'] ?? ''); ?>" required>
+                </div>
+                <div class="form-group">
+                    <label for="profile_photo">Profile Photo:</label>
+                    <input type="file" class="form-control-file" id="profile_photo" name="profile_photo">
+                </div>
+                <button type="submit" class="btn">Save Changes</button>
+            </form>
+        </main>
+        <footer>
+            <p>&copy; 2023 EduTech+. All rights reserved.</p>
+            <p>Contact us: info@edutech.com</p>
+        </footer>
+    </div>
+</body>
+</html>

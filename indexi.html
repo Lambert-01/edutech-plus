@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puneeths Dashboard</title>
+    <link rel="shortcut icon" href="./images/logo.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dark-theme">
+    <header>
+        <div class="logo" title="GNI">
+            <img src="./images/logo.png" alt="">
+            <h2>GNIT</h2>
+        </div>
+        <div class="navbar">
+            <a href="index.html" class="active">
+                <span class="material-icons-sharp">home</span>
+                <h3>Home</h3>
+            </a>
+            <a href="timetable.html" onclick="timeTableAll()">
+                <span class="material-icons-sharp">today</span>
+                <h3>Time Table</h3>
+            </a> 
+            <a href="exam.html">
+                <span class="material-icons-sharp">grid_view</span>
+                <h3>Examination</h3>
+            </a>
+            <a href="password.html">
+                <span class="material-icons-sharp">password</span>
+                <h3>Change Password</h3>
+            </a>
+            <a href="#">
+                <span class="material-icons-sharp" onclick="">logout</span>
+                <h3>Logout</h3>
+            </a>
+        </div>
+        <div id="profile-btn">
+            <span class="material-icons-sharp">person</span>
+        </div>
+        <div class="theme-toggler">
+            <span class="material-icons-sharp active">dark_mode</span>
+            <span class="material-icons-sharp">light_mode</span>
+        </div>
+        
+    </header>
+    <div class="container">
+        <aside>
+            <div class="profile">
+                <div class="top">
+                    <div class="profile-photo">
+                        <img src="./images/profile-1.jpg" alt="">
+                    </div>
+                    <div class="info">
+                        <p>Hey, <b>Puneeth</b> </p>
+                        <small class="text-muted">21831A7251</small>
+                    </div>
+                </div>
+                <div class="about">
+                    <h5>Course</h5>
+                    <p>B.Tech. Artificial Intelligence and Data Science</p>
+                    <h5>DOB</h5>
+                    <p>06-Nov-2002</p>
+                    <h5>Contact</h5>
+                    <p><a href="tel:+918688290711">8688290711</a></p>
+                    <h5>Email</h5>
+                    <p><a href="mailto:puneethx1@gmail.com">puneethx1@gmail.com</a></p>
+                    <h5>Address</h5>
+                    <p>Chandrayan Gutta, Hyderabad, Telangana</p>
+                    <h5>Github</h5>
+                    <p><a href="https://github.com/darkxdd">github.com/darkxdd</a></p>
+                    <h5>LinkedIn</h5>
+                    <p><a href="https://www.linkedin.com/in/puneethx/"> linkedin.com/in/puneethx</a></p>
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <h1>Attendance</h1>
+            <div class="subjects">
+                <div class="dv">
+                    <span class="material-icons-sharp">dns</span>
+                    <h3>Data Visualization</h3>
+                    <h2>85/91</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>93%</p></div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+                </div>
+                <div class="nlp">
+                    <span class="material-icons-sharp">translate</span>
+                    <h3>Natural Language Processing</h3>
+                    <h2>80/91</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>87%</p></div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+                </div>
+                <div class="dlf">
+                    <span class="material-icons-sharp">functions</span>
+                    <h3>Deep Learning Foundation</h3>
+                    <h2>50/91</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>54%</p></div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+                </div>
+                <div class="sl">
+                    <span class="material-icons-sharp">javascript</span>
+                    <h3>Scripting Languages</h3>
+                    <h2>64/91</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>70%</p></div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+                </div>
+                <div class="dppm">
+                    <span class="material-icons-sharp">flood</span>
+                    <h3>Disaster Preparedness and Planning Management</h3>
+                    <h2>35/91</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>38%</p></div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+                </div>
+            </div>
+            <br>
+            <h1>Marks</h1>
+            <div class="subjects">
+    <div class="dv">
+        <span class="material-icons-sharp">dns</span>
+        <h3>Data Visualization</h3>
+        <div class="bar-graph">
+            <div class="bar" style="width: 66%;"></div>
+        </div>
+        <small class="text-muted">20/30</small>
+    </div>
+    <div class="nlp">
+        <span class="material-icons-sharp">translate</span>
+        <h3>Natural Language Processing</h3>
+        <div class="bar-graph">
+            <div class="bar" style="width: 80%;"></div>
+        </div>
+        <small class="text-muted">24/30</small>
+    </div>
+    <div class="dlf">
+        <span class="material-icons-sharp">functions</span>
+        <h3>Deep Learning Foundation</h3>
+        <div class="bar-graph">
+            <div class="bar" style="width: 56%;"></div>
+        </div>
+        <small class="text-muted">17/30</small>
+    </div>
+    <div class="sl">
+        <span class="material-icons-sharp">javascript</span>
+        <h3>Scripting Languages</h3>
+        <div class="bar-graph">
+            <div class="bar" style="width: 90%;"></div>
+        </div>
+        <small class="text-muted">27/30</small>
+    </div>
+    <div class="dppm">
+        <span class="material-icons-sharp">flood</span>
+        <h3>Disaster Preparedness and Planning Management</h3>
+        <div class="bar-graph">
+            <div class="bar" style="width: 96%;"></div>
+        </div>
+        <small class="text-muted">29/30</small>
+    </div>
+</div>
+
+            <div class="timetable" id="timetable">
+                <div>
+                    <span id="prevDay">&lt;</span>
+                    <h2>Today's Timetable</h2>
+                    <span id="nextDay">&gt;</span>
+                </div>
+                <span class="closeBtn" onclick="timeTableAll()">X</span>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Room No.</th>
+                            <th>Subject</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </main>
+
+        <div class="right">
+            <div class="announcements">
+                <h2>Announcements</h2>
+                <div class="updates">
+                    <div class="message">
+                        <p> <b>Academic</b> Preparing a dashboard for Data Visualization.</p>
+                        <small class="text-muted">2 Minutes Ago</small>
+                    </div>
+                    <div class="message">
+                        <p> <b>Co-curricular</b> Wipro TalentNext student training engagement program started.</p>
+                        <small class="text-muted">10 Minutes Ago</small>
+                    </div>
+                    <div class="message">
+                        <p> <b>Examination</b> Instructions for Mid Term Examination.</p>
+                        <small class="text-muted">Yesterday</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="leaves">
+                <h2>Teachers</h2>
+                <div class="teacher">
+                    <div class="profile-photo"><img src="./images/profile-2.jpeg" alt=""></div>
+                    <div class="info">
+                        <h3>Yanda Sailaja</h3>
+                        <small class="text-muted">Data Visualization</small>
+                    </div>
+                </div>
+                <div class="teacher">
+                    <div class="profile-photo"><img src="./images/profile-2.jpeg" alt=""></div>
+                    <div class="info">
+                        <h3>Rohit Jain</h3>
+                        <small class="text-muted">Natural Language Processing</small>
+                    </div>
+                </div>
+                <div class="teacher">
+                    <div class="profile-photo"><img src="./images/profile-2.jpeg" alt=""></div>
+                    <div class="info">
+                        <h3>Ummer Chopan</h3>
+                        <small class="text-muted">Deep Learning</small>
+                    </div>
+                </div>
+                <div class="teacher">
+                    <div class="profile-photo"><img src="./images/profile-2.jpeg" alt=""></div>
+                    <div class="info">
+                        <h3>Mahesh Kumar</h3>
+                        <small class="text-muted">Scripting Language</small>
+                    </div>
+                </div>
+                <div class="teacher">
+                    <div class="profile-photo"><img src="./images/profile-2.jpeg" alt=""></div>
+                    <div class="info">
+                        <h3>Latha Sri</h3>
+                        <small class="text-muted">DPPM</small>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="timeTable.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

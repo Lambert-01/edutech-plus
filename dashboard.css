@@ -1,0 +1,253 @@
+/* Add your styles here */
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1e;
+    color: #ffffff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #2c2c2e;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 40px;
+    margin-right: 0.5rem;
+}
+
+header .logo h2 {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+header .navbar a {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+header .navbar a.active {
+    background-color: #3a3a3c;
+    border-radius: 0.5rem;
+}
+
+header .navbar a:hover {
+    background-color: #4a4a4c;
+    border-radius: 0.5rem;
+}
+
+header .navbar a h3 {
+    margin-left: 0.5rem;
+}
+
+header .theme-toggler {
+    display: flex;
+    align-items: center;
+}
+
+header .theme-toggler span {
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+aside {
+    width: 20%;
+    background-color: #2c2c2e;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+aside .profile {
+    text-align: center;
+}
+
+aside .profile .top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+aside .profile .profile-photo img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+aside .profile .info {
+    text-align: left;
+}
+
+aside .profile .about h5 {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+aside .profile .about p {
+    margin: 0.5rem 0;
+}
+
+main {
+    width: 60%;
+    background-color: #2c2c2e;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+main h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+main .subjects {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+main .subjects .dv,
+main .subjects .nlp,
+main .subjects .dlf,
+main .subjects .sl,
+main .subjects .dppm {
+    width: 48%;
+    background-color: #3a3a3c;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+main .subjects .progress {
+    margin: 1rem 0;
+    position: relative;
+    width: 75px;
+    height: 75px;
+}
+
+main .subjects .progress svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg);
+}
+
+main .subjects .progress svg circle {
+    fill: none;
+    stroke-width: 4;
+    stroke: #ffffff;
+    stroke-dasharray: 226;
+    stroke-dashoffset: 0;
+}
+
+main .subjects .progress .number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+}
+
+main .subjects .bar-graph {
+    background-color: #4a4a4c;
+    height: 20px;
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+main .subjects .bar-graph .bar {
+    height: 100%;
+    background-color: #ffffff;
+}
+
+main .timetable {
+    display: none;
+    background-color: #2c2c2e;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+main .timetable div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main .timetable h2 {
+    margin: 0;
+}
+
+main .timetable table {
+    width: 100%;
+    margin-top: 1rem;
+    border-collapse: collapse;
+}
+
+main .timetable table th,
+main .timetable table td {
+    padding: 0.5rem;
+    border: 1px solid #4a4a4c;
+}
+
+main .timetable table th {
+    background-color: #3a3a3c;
+}
+
+.right {
+    width: 20%;
+    background-color: #2c2c2e;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.right .announcements h2,
+.right .teachers h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.right .announcements .updates .message {
+    background-color: #3a3a3c;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.right .teachers .teacher {
+    display: flex;
+    align-items: center;
+    background-color: #3a3a3c;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.right .teachers .teacher .profile-photo img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.right .teachers .teacher .info {
+    text-align: left;
+}
