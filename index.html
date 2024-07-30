@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>EduTech+ - eLEARNING website</title>
@@ -9,9 +8,7 @@
     <meta content="" name="description">
     <!-- Favicon -->
     <link href="img/educa.png" rel="icon">
-    <link
-       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-       
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js"></script>
     <!-- Add these in the <head> section of your HTML file -->
@@ -25,41 +22,201 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bg-rwanda {
+    background: linear-gradient(to right, #3C3B6E, #FCD116, #1EB53A);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Floating Button */
+#floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #0044cc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    animation: bounce 2s infinite;
+}
+
+#floating-icon {
+    width: 30px;
+    height: 30px;
+}
+
+#extension-panel {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 300px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    display: none;
+}
+
+#search-bar,
+#textbook-solutions,
+#expert-qa {
+    margin-bottom: 20px;
+}
+
+#search-input {
+    width: calc(100% - 70px);
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 8px 12px;
+    background-color: #0044cc;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #003399;
+}
+
+textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+/* Additional Special Styles */
+#floating-button:hover {
+    background-color: #ff6600;
+    /* Change color on hover */
+}
+
+#extension-panel h2 {
+    color: #009933;
+    /* Special color for heading */
+    font-size: 24px;
+    /* Larger font size */
+}
+
+#search-input:focus {
+    border-color: #ff0000;
+    /* Highlight input on focus */
+}
+
+button:active {
+    transform: scale(0.95);
+    /* Add a scaling effect on button click */
+}
+
+/* Keyframes for button animation */
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Q&A Section */
+.qa-section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.qa-section h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.qa-item {
+    margin-bottom: 15px;
+}
+
+.qa-question {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.qa-answer {
+    margin-left: 20px;
+    color: #555;
+}
+
+    </style>
 </head>
-<style> .base-refresh-button{background-color:#fff;border:none;color:gray;padding:8px 14px;border-radius:2px;text-align:center;text-decoration:none;display:inline-block;font-size:12px;margin:4px 2px;cursor:pointer}</style>
-
-
 <body>
- <!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-    <div class="container-fluid">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <img src="img/educa.png" alt="EduTech+ Logo" height="40" class="me-2" />
-            <h2 class="m-0 text-primary" style="font-family: 'Roboto', sans-serif;">EDUTECH+</h2>
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="courses.html" class="nav-item nav-link">Courses</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="team.html" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-rwanda navbar-light shadow sticky-top p-0">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+                <img src="img/educa.png" alt="EduTech+ Logo" height="40" class="me-2" />
+                <h2 class="m-0 text-primary" style="font-family: 'Roboto', sans-serif;">EDUTECH+</h2>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="courses.html" class="nav-item nav-link">Courses</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu fade-down m-0">
+                            <a href="team.html" class="dropdown-item">Our Team</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="404.html" class="dropdown-item">404 Page</a>
+                        </div>
                     </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <a href="login.html" class="btn btn-primary py-2 px-lg-4 d-none d-lg-block" style="font-family: 'Roboto', sans-serif;">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
-            <a href="login.html" class="btn btn-primary py-2 px-lg-4 d-none d-lg-block" style="font-family: 'Roboto', sans-serif;">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
-    </div>
-</nav>
-<!-- Navbar End -->
+    </nav>
+    <!-- Navbar End -->
+
+
 
 
     <!-- Introduction Start -->
@@ -75,7 +232,7 @@
                             <h1 class="display-3 text-white animated slideInDown">Discover Yourself</h1>
                             <p class="fs-5 text-white mb-4 pb-2">Bridging Rwanda's educational gaps through personalized learning tailored to the unique needs of its education system, fostering inclusive and effective learning outcomes.</p>
                             <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                            <a href="#" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+                            <a href="login.html" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
                         </div>
                       
                     </div>
@@ -470,6 +627,40 @@
         </div>
     </div>
     <!-- Testimonial End -->
+    
+     <!-- Floating Button -->
+    <div id="floating-button" onclick="togglePanel()">
+        <img src="icon.png" alt="Menu" id="floating-icon">
+    </div>
+
+    <!-- Extension Panel -->
+    <div id="extension-panel">
+        <!-- Search Bar -->
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Search for textbooks, solutions, tutors...">
+            <button onclick="performSearch()">Search</button>
+        </div>
+
+        <!-- Textbook Solutions -->
+        <div id="textbook-solutions">
+            <h2>Textbook Solutions</h2>
+            <ul id="solutions-list">
+                <!-- Solutions will be dynamically loaded here -->
+            </ul>
+        </div>
+
+        <!-- Expert Q&A -->
+        <div id="expert-qa">
+            <h2>Expert Q&A</h2>
+            <textarea id="question-input" placeholder="Ask your question here..."></textarea>
+            <button onclick="submitQuestion()">Submit Question</button>
+            <ul id="qa-list">
+                <!-- Questions and answers will be dynamically loaded here -->
+            </ul>
+        </div>
+    </div>
+
+   
     
     <!-- Add the following CSS to your stylesheet -->
     <style>
